@@ -29,21 +29,90 @@
         color: #584d41;
         font-family: "Tajawal", sans-serif;
       }
-      .photo {
+
+      /* ── Ornamental panel with the couple (replaces the photo) ── */
+      .art {
         width: 440px;
         height: 630px;
-        padding: 34px 34px 34px 0;
+        padding: 34px 0 34px 34px;
         flex: none;
       }
-      .photo div {
+      .art > div {
+        position: relative;
         width: 100%;
         height: 100%;
-        border-radius: 18px;
+        border-radius: 220px 220px 18px 18px;
+        border: 1px solid rgba(176, 141, 79, 0.5);
+        background:
+          radial-gradient(
+            circle at 50% 36%,
+            rgba(255, 255, 255, 0.95),
+            rgba(255, 255, 255, 0) 64%
+          ),
+          linear-gradient(160deg, #fdfaf2, #efe2c8);
+        box-shadow: 0 24px 50px -26px rgba(90, 70, 40, 0.55);
         overflow: hidden;
-        border: 8px solid rgba(255, 255, 255, 0.75);
-        box-shadow: 0 24px 50px -26px rgba(90, 70, 40, 0.6);
-        background: url("../public/childs.jpg") center / cover;
       }
+      .art > div::before {
+        content: "";
+        position: absolute;
+        inset: 16px;
+        border-radius: 205px 205px 10px 10px;
+        border: 1px dashed rgba(176, 141, 79, 0.4);
+      }
+      .couple {
+        position: absolute;
+        left: 50%;
+        top: 46px;
+        transform: translateX(-50%);
+        width: 306px;
+        height: 430px;
+        color: #b08d4f;
+      }
+      .couple .skin {
+        fill: #f3e5cb;
+        stroke: #b08d4f;
+        stroke-width: 1.2;
+      }
+      .couple .hair {
+        fill: #a5824a;
+      }
+      .couple .dress {
+        fill: #fdfaf1;
+        stroke: #c9a86a;
+        stroke-width: 1.2;
+        stroke-linejoin: round;
+      }
+      .couple .suit {
+        fill: #d8bb8f;
+        stroke: #a98445;
+        stroke-width: 1.2;
+        stroke-linejoin: round;
+      }
+      .couple .veil {
+        fill: rgba(255, 255, 255, 0.78);
+        stroke: #d3b57f;
+        stroke-width: 1.1;
+        stroke-linejoin: round;
+      }
+      .couple .detail {
+        stroke: #b08d4f;
+        stroke-width: 1;
+        fill: none;
+        opacity: 0.7;
+      }
+      .art small {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 22px;
+        text-align: center;
+        font-size: 17px;
+        letter-spacing: 0.02em;
+        color: #94887a;
+      }
+
+      /* ── Text block ── */
       .text {
         position: relative;
         flex: 1;
@@ -72,6 +141,7 @@
       }
       .names {
         font-family: "Aref Ruqaa", serif;
+        font-weight: 400;
         font-size: 132px;
         line-height: 1.15;
         margin: 4px 0 2px;
@@ -81,6 +151,7 @@
         color: #b08d4f;
         font-size: 0.5em;
         margin: 0 18px;
+        vertical-align: 0.28em;
       }
       .div {
         display: flex;
@@ -124,7 +195,97 @@
     </style>
   </head>
   <body>
-    <div class="photo"><div></div></div>
+    <div class="art">
+      <div>
+        <svg class="couple" viewBox="0 0 306 430" aria-hidden>
+          <!-- halo + ground -->
+          <circle cx="153" cy="198" r="126" stroke="#c9a86a" stroke-width="0.9" fill="none" opacity=".45" />
+          <circle cx="153" cy="198" r="116" stroke="#c9a86a" stroke-width="0.9" stroke-dasharray="1 8" fill="none" opacity=".4" />
+          <ellipse cx="153" cy="404" rx="108" ry="7" fill="#b08d4f" opacity=".13" />
+
+          <!-- ══════════ BRIDE ══════════ -->
+          <g>
+            <!-- veil -->
+            <path class="veil" d="M110 78C78 88 64 130 64 180c0 46 5 90 14 122h20c-10-40-15-84-15-126 0-34 8-68 27-92Z" />
+            <path class="veil" d="M110 78c32 10 46 52 46 102 0 46-5 90-14 122h-20c10-40 15-84 15-126 0-34-8-68-27-92Z" />
+            <path class="detail" d="M70 172c0 46 5 88 12 120" stroke-dasharray="3 6" />
+            <path class="detail" d="M150 172c0 46-5 88-12 120" stroke-dasharray="3 6" />
+
+            <!-- gown -->
+            <path class="dress" d="M84 192h52c11 48 24 134 30 208H54c6-74 19-160 30-208Z" />
+            <path class="detail" d="M100 214c-4 58-6 128-4 178M120 214c4 58 6 128 4 178" />
+
+            <!-- bodice -->
+            <path class="dress" d="M110 122c-10 0-18 2-23 7-3 24-3 40-2 63h50c1-23 1-39-2-63-5-5-13-7-23-7Z" />
+            <path class="detail" d="M95 132c9 7 21 7 30 0" />
+            <path class="detail" d="M110 158v34" />
+
+            <!-- arms holding the bouquet -->
+            <path class="skin" d="M92 130c-6 18-8 40-6 58l9 3c-1-16 0-38 4-54Z" />
+            <path class="skin" d="M128 130c6 18 8 40 6 58l-9 3c1-16 0-38-4-54Z" />
+
+            <!-- bouquet -->
+            <circle class="dress" cx="98" cy="202" r="7" />
+            <circle class="dress" cx="110" cy="195" r="8.6" />
+            <circle class="dress" cx="123" cy="202" r="6.6" />
+            <circle class="dress" cx="103" cy="213" r="6.6" />
+            <circle class="dress" cx="118" cy="213" r="6.6" />
+            <path class="detail" d="M103 218c-3 12-2 22 3 30M122 218c3 12 2 22-3 30" />
+
+            <!-- neck + head + hair -->
+            <path class="skin" d="M104 102h12v18h-12Z" />
+            <circle class="skin" cx="110" cy="82" r="24" />
+            <path class="hair" d="M110 56c-14 0-25 11-25 25 0 5 1 8 3 7 5-11 13-17 22-17s17 6 22 17c2 1 3-2 3-7 0-14-11-25-25-25Z" />
+
+            <!-- flower crown -->
+            <circle class="dress" cx="87" cy="66" r="4.2" />
+            <circle class="dress" cx="98" cy="58" r="5.2" />
+            <circle class="dress" cx="110" cy="55" r="3.6" />
+            <circle class="dress" cx="122" cy="58" r="5.2" />
+            <circle class="dress" cx="133" cy="66" r="4.2" />
+          </g>
+
+          <!-- ══════════ GROOM ══════════ -->
+          <g>
+            <!-- legs + shoes -->
+            <path class="suit" d="M193 244h21v142h-21Z" />
+            <path class="suit" d="M208 244h21v142h-21Z" />
+            <path class="suit" d="M188 386h26v9a2 2 0 0 1-2 2h-24Z" />
+            <path class="suit" d="M206 386h26v9a2 2 0 0 1-2 2h-24Z" />
+
+            <!-- sleeves -->
+            <path class="suit" d="M182 132c-6 6-8 20-8 44l1 42h13l-1-44c0-20 2-34 6-40Z" />
+            <path class="suit" d="M228 132c6 6 8 20 8 44l-1 42h-13l1-44c0-20-2-34-6-40Z" />
+            <circle class="skin" cx="181" cy="222" r="5.4" />
+            <circle class="skin" cx="229" cy="222" r="5.4" />
+
+            <!-- jacket -->
+            <path class="suit" d="M205 124c-16 0-26 8-28 22-2 16-3 44-3 98h62c0-54-1-82-3-98-2-14-12-22-28-22Z" />
+
+            <!-- lapels + bow tie -->
+            <path d="M205 128l-13 16 13 26 13-26Z" fill="#fdfaf1" stroke="#a98445" stroke-width="1.1" />
+            <path class="hair" d="M205 134l-8-5v10ZM205 134l8-5v10Z" />
+            <circle cx="205" cy="134" r="2.2" fill="#a98445" />
+            <circle cx="205" cy="184" r="1.4" fill="#a98445" />
+            <circle cx="205" cy="198" r="1.4" fill="#a98445" />
+
+            <!-- neck + head + hair -->
+            <path class="skin" d="M199 104h12v18h-12Z" />
+            <circle class="skin" cx="205" cy="84" r="24" />
+            <path class="hair" d="M205 58c-14 0-25 10-25 24 0 4 1 7 3 6 5-11 12-16 22-16s17 5 22 16c2 1 3-2 3-6 0-14-11-24-25-24Z" />
+
+          </g>
+
+          <!-- sparkles -->
+          <path d="M50 180v12M44 186h12" stroke="#c9a86a" stroke-width="1" opacity=".55" />
+          <path d="M266 148v10M261 153h10" stroke="#c9a86a" stroke-width="1" opacity=".55" />
+          <path d="M256 268v8M252 272h8" stroke="#c9a86a" stroke-width="1" opacity=".4" />
+          <path d="M48 292v7M44.5 295.5h7" stroke="#c9a86a" stroke-width="1" opacity=".4" />
+        </svg>
+        <small>بكل الحب</small>
+      </div>
+    </div>
+
     <div class="text">
       <span class="frame"></span>
       <p class="kicker">ندعوكم لمشاركتنا حفل زفاف</p>

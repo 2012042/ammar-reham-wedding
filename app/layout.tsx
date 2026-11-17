@@ -12,7 +12,7 @@ const ogImage = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://ammar-reham.vercel.app"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://2012042.github.io/ammar-reham-wedding"
   ),
   title,
   description,
