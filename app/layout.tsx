@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from "next";
+// Next.js processes this global stylesheet import during the build.
+// @ts-expect-error TypeScript may not resolve side-effect CSS imports.
 import "./globals.css";
 
 const title = "عمار & رهام | دعوة زفاف";
