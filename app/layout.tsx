@@ -11,7 +11,9 @@ const ogImage = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ammar-reham.vercel.app"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://ammar-reham.vercel.app"
+  ),
   title,
   description,
   openGraph: {

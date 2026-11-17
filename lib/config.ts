@@ -14,7 +14,7 @@ export const settings = {
     "https://www.google.com/maps/search/?api=1&query=%D8%B5%D8%A7%D9%84%D8%A9+%D8%B4%D9%88%D9%81%D8%A7%D9%84",
   /** WhatsApp number for RSVP, international format without + (leave "" to hide the button). */
   whatsapp: "963900000000",
-  music: "/music/song.mp3",
+  music: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/music/song.mp3`,
 };
 
 export const content = {
