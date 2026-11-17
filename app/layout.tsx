@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-
 import "./globals.css";
 
 const title = "عمار & رهام | دعوة زفاف";
